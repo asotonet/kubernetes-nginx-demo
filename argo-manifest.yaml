@@ -1,0 +1,10 @@
+project: default
+source:
+  repoURL: https://github.com/asotonet/kubernetes-nginx-demo.git
+  path: ./
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: nginx-web-namespace
+syncPolicy:
+  automated: {}
