@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: nginx-web-service
   namespace: nginx-web-namespace
+  labels:
+    app: nginx-web
 spec:
   type: LoadBalancer
   ports:
