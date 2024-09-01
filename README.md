@@ -1,5 +1,5 @@
 ````mermaid
-graph TD
+  graph TD
     A[Desarrollador hace push a Git] -->|Trigger| B[Jenkins detecta cambios]
     B --> C{Ejecutar pruebas}
     C -->|Fallan| D[Notificar al desarrollador]
