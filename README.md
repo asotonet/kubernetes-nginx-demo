@@ -1,15 +1,17 @@
 ````mermaid
-  graph TD
-    A[Desarrollador hace push a Git] -->|Trigger| B[Jenkins detecta cambios]
+graph TD
+    A[Desarrollador hace push a GitHub] -->|Trigger| B[GitHub Actions inicia workflow]
     B --> C{Ejecutar pruebas}
     C -->|Fallan| D[Notificar al desarrollador]
     D --> A
     C -->|Pasan| E[Construir imagen Docker]
-    E --> F[Subir imagen a registro Docker]
-    F --> G[Actualizar manifiesto de Kubernetes]
-    G --> H[Aplicar cambios en cluster Kubernetes]
-    H --> I[Monitorear despliegue]
-    I -->|Éxito| J[Notificar equipo]
-    I -->|Fallo| K[Rollback y notificar]
-    K --> A
+    E --> F[Subir imagen a DockerHub]
+    F --> G[Actualizar manifiesto de Kubernetes en GitHub]
+    G --> H[ArgoCD detecta cambios]
+    H --> I[ArgoCD compara estado deseado vs actual]
+    I --> J[ArgoCD aplica cambios en cluster Kubernetes]
+    J --> K[Monitorear despliegue]
+    K -->|Éxito| L[Notificar equipo]
+    K -->|Fallo| M[Rollback automático y notificar]
+    M --> A
 ````
