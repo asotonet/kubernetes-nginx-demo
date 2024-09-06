@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: nginx-web
-        image: asotonet/nginx-headers:testing
+        image: asotonet/nginx-headers:latest
         ports:
         - containerPort: 80
